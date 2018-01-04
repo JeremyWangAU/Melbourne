@@ -7,7 +7,15 @@
 		<key>melbourne coffee review.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>3</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>A6FA1FB61FE0B73A0039B882</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

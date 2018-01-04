@@ -7,23 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		105BF949BD92984C1A221071 /* Pods_melbourne_coffee_review.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99DCC87948F15AC9CF3C11B /* Pods_melbourne_coffee_review.framework */; };
+		A66E0B0F1FECAD2600543CB7 /* AllListMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E0B0E1FECAD2600543CB7 /* AllListMapViewController.swift */; };
+		A66E0B131FECB0B600543CB7 /* CoffeeShopMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E0B121FECB0B600543CB7 /* CoffeeShopMap.swift */; };
+		A66E0B151FEDC49700543CB7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E0B141FEDC49700543CB7 /* SettingViewController.swift */; };
+		A66E0B191FEDCACA00543CB7 /* NearbyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E0B181FEDCACA00543CB7 /* NearbyTableViewController.swift */; };
+		A66E0B1B1FEDE7D300543CB7 /* NearbyMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E0B1A1FEDE7D300543CB7 /* NearbyMapViewController.swift */; };
+		A66E0B1D1FF0677300543CB7 /* CoffeeShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E0B1C1FF0677300543CB7 /* CoffeeShopDetailViewController.swift */; };
+		A6808FF11FFBC29400A56B59 /* NearbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6808FF01FFBC29400A56B59 /* NearbyTableViewCell.swift */; };
 		A6FA1FBB1FE0B73A0039B882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA1FBA1FE0B73A0039B882 /* AppDelegate.swift */; };
-		A6FA1FBD1FE0B73A0039B882 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA1FBC1FE0B73A0039B882 /* ViewController.swift */; };
 		A6FA1FC01FE0B73A0039B882 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6FA1FBE1FE0B73A0039B882 /* Main.storyboard */; };
 		A6FA1FC31FE0B73A0039B882 /* melbourne_coffee_review.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6FA1FC11FE0B73A0039B882 /* melbourne_coffee_review.xcdatamodeld */; };
 		A6FA1FC51FE0B73A0039B882 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6FA1FC41FE0B73A0039B882 /* Assets.xcassets */; };
 		A6FA1FC81FE0B73A0039B882 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6FA1FC61FE0B73A0039B882 /* LaunchScreen.storyboard */; };
+		A6FA1FD01FE0CFBA0039B882 /* AllListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA1FCF1FE0CFBA0039B882 /* AllListTableViewController.swift */; };
+		A6FA1FD21FE0CFEC0039B882 /* AllListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA1FD11FE0CFEC0039B882 /* AllListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A66E0B0E1FECAD2600543CB7 /* AllListMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListMapViewController.swift; sourceTree = "<group>"; };
+		A66E0B121FECB0B600543CB7 /* CoffeeShopMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopMap.swift; sourceTree = "<group>"; };
+		A66E0B141FEDC49700543CB7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		A66E0B181FEDCACA00543CB7 /* NearbyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyTableViewController.swift; sourceTree = "<group>"; };
+		A66E0B1A1FEDE7D300543CB7 /* NearbyMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyMapViewController.swift; sourceTree = "<group>"; };
+		A66E0B1C1FF0677300543CB7 /* CoffeeShopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopDetailViewController.swift; sourceTree = "<group>"; };
+		A6808FF01FFBC29400A56B59 /* NearbyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyTableViewCell.swift; sourceTree = "<group>"; };
 		A6FA1FB71FE0B73A0039B882 /* melbourne coffee review.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "melbourne coffee review.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FA1FBA1FE0B73A0039B882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A6FA1FBC1FE0B73A0039B882 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A6FA1FBF1FE0B73A0039B882 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6FA1FC21FE0B73A0039B882 /* melbourne_coffee_review.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = melbourne_coffee_review.xcdatamodel; sourceTree = "<group>"; };
 		A6FA1FC41FE0B73A0039B882 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6FA1FC71FE0B73A0039B882 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6FA1FC91FE0B73A0039B882 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6FA1FCF1FE0CFBA0039B882 /* AllListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListTableViewController.swift; sourceTree = "<group>"; };
+		A6FA1FD11FE0CFEC0039B882 /* AllListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListTableViewCell.swift; sourceTree = "<group>"; };
+		D99DCC87948F15AC9CF3C11B /* Pods_melbourne_coffee_review.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_melbourne_coffee_review.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB2575100C0C217820509B01 /* Pods-melbourne coffee review.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-melbourne coffee review.debug.xcconfig"; path = "Pods/Target Support Files/Pods-melbourne coffee review/Pods-melbourne coffee review.debug.xcconfig"; sourceTree = "<group>"; };
+		E8DF6D23C23A5DF5A49FE882 /* Pods-melbourne coffee review.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-melbourne coffee review.release.xcconfig"; path = "Pods/Target Support Files/Pods-melbourne coffee review/Pods-melbourne coffee review.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +51,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				105BF949BD92984C1A221071 /* Pods_melbourne_coffee_review.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45CB2898C2B76DB99CBBFB8B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB2575100C0C217820509B01 /* Pods-melbourne coffee review.debug.xcconfig */,
+				E8DF6D23C23A5DF5A49FE882 /* Pods-melbourne coffee review.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A6FA1FAE1FE0B73A0039B882 = {
 			isa = PBXGroup;
 			children = (
 				A6FA1FB91FE0B73A0039B882 /* melbourne coffee review */,
 				A6FA1FB81FE0B73A0039B882 /* Products */,
+				45CB2898C2B76DB99CBBFB8B /* Pods */,
+				F11BA1D049333F168002E1A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +89,30 @@
 			isa = PBXGroup;
 			children = (
 				A6FA1FBA1FE0B73A0039B882 /* AppDelegate.swift */,
-				A6FA1FBC1FE0B73A0039B882 /* ViewController.swift */,
 				A6FA1FBE1FE0B73A0039B882 /* Main.storyboard */,
 				A6FA1FC41FE0B73A0039B882 /* Assets.xcassets */,
 				A6FA1FC61FE0B73A0039B882 /* LaunchScreen.storyboard */,
 				A6FA1FC91FE0B73A0039B882 /* Info.plist */,
 				A6FA1FC11FE0B73A0039B882 /* melbourne_coffee_review.xcdatamodeld */,
+				A6FA1FCF1FE0CFBA0039B882 /* AllListTableViewController.swift */,
+				A6FA1FD11FE0CFEC0039B882 /* AllListTableViewCell.swift */,
+				A66E0B0E1FECAD2600543CB7 /* AllListMapViewController.swift */,
+				A66E0B121FECB0B600543CB7 /* CoffeeShopMap.swift */,
+				A66E0B141FEDC49700543CB7 /* SettingViewController.swift */,
+				A66E0B181FEDCACA00543CB7 /* NearbyTableViewController.swift */,
+				A66E0B1A1FEDE7D300543CB7 /* NearbyMapViewController.swift */,
+				A6808FF01FFBC29400A56B59 /* NearbyTableViewCell.swift */,
+				A66E0B1C1FF0677300543CB7 /* CoffeeShopDetailViewController.swift */,
 			);
 			path = "melbourne coffee review";
+			sourceTree = "<group>";
+		};
+		F11BA1D049333F168002E1A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D99DCC87948F15AC9CF3C11B /* Pods_melbourne_coffee_review.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +122,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A6FA1FCC1FE0B73A0039B882 /* Build configuration list for PBXNativeTarget "melbourne coffee review" */;
 			buildPhases = (
+				9CC546BBE47D9CEC0118DBFA /* [CP] Check Pods Manifest.lock */,
 				A6FA1FB31FE0B73A0039B882 /* Sources */,
 				A6FA1FB41FE0B73A0039B882 /* Frameworks */,
 				A6FA1FB51FE0B73A0039B882 /* Resources */,
+				C4E28281EADAE6E7FBC87F20 /* [CP] Embed Pods Frameworks */,
+				DC58D7F130D8CE8BB2286601 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,14 +185,80 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9CC546BBE47D9CEC0118DBFA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-melbourne coffee review-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4E28281EADAE6E7FBC87F20 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-melbourne coffee review/Pods-melbourne coffee review-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-melbourne coffee review/Pods-melbourne coffee review-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC58D7F130D8CE8BB2286601 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-melbourne coffee review/Pods-melbourne coffee review-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A6FA1FB31FE0B73A0039B882 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6FA1FBD1FE0B73A0039B882 /* ViewController.swift in Sources */,
+				A66E0B131FECB0B600543CB7 /* CoffeeShopMap.swift in Sources */,
 				A6FA1FC31FE0B73A0039B882 /* melbourne_coffee_review.xcdatamodeld in Sources */,
+				A66E0B191FEDCACA00543CB7 /* NearbyTableViewController.swift in Sources */,
+				A6FA1FD21FE0CFEC0039B882 /* AllListTableViewCell.swift in Sources */,
 				A6FA1FBB1FE0B73A0039B882 /* AppDelegate.swift in Sources */,
+				A66E0B0F1FECAD2600543CB7 /* AllListMapViewController.swift in Sources */,
+				A66E0B151FEDC49700543CB7 /* SettingViewController.swift in Sources */,
+				A6FA1FD01FE0CFBA0039B882 /* AllListTableViewController.swift in Sources */,
+				A66E0B1B1FEDE7D300543CB7 /* NearbyMapViewController.swift in Sources */,
+				A6808FF11FFBC29400A56B59 /* NearbyTableViewCell.swift in Sources */,
+				A66E0B1D1FF0677300543CB7 /* CoffeeShopDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -266,7 +383,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -276,11 +393,13 @@
 		};
 		A6FA1FCD1FE0B73A0039B882 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB2575100C0C217820509B01 /* Pods-melbourne coffee review.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB64227M3X;
 				INFOPLIST_FILE = "melbourne coffee review/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "test.melbourne-coffee-review";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -291,11 +410,13 @@
 		};
 		A6FA1FCE1FE0B73A0039B882 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8DF6D23C23A5DF5A49FE882 /* Pods-melbourne coffee review.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB64227M3X;
 				INFOPLIST_FILE = "melbourne coffee review/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "test.melbourne-coffee-review";
 				PRODUCT_NAME = "$(TARGET_NAME)";
