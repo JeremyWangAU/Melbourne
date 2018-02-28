@@ -14,6 +14,7 @@ struct CoffeeShop: Decodable {
     let name:String?
     let street:String?
     let suburb:String?
+    let state:String?
     let beanRating:String?
     let latitude:String?
     let longitude:String?
@@ -27,7 +28,11 @@ struct CoffeeShop: Decodable {
 }
 
 
-class AllListTableViewController: UITableViewController {
+class AllListTableViewController: UITableViewController,FloatRatingViewDelegate {
+    func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Float) {
+        
+    }
+    
     @IBOutlet weak var rightbutton: UIBarButtonItem!
     
     var coffeeshops = [CoffeeShop]()
@@ -172,13 +177,22 @@ class AllListTableViewController: UITableViewController {
 
         }
         cell.AllListName.text = coffeeshop.name
-        cell.AllListRating.text = coffeeshop.beanRating
+       // cell.AllListRating.text = coffeeshop.beanRating
         cell.AlllListAddress!.text = coffeeshop.street
         let URL_IMAGE = URL(string: "http://melbournecoffeereview.com/hotshots\(coffeeshop.thumbPath!)")!
         cell.AllListImage.af_setImage(withURL:URL_IMAGE)
         
         // Configure the cell...
-
+        cell.floatRatingView.fullImage = UIImage(named: "bean")
+        cell.floatRatingView.emptyImage = UIImage(named: "bean")
+        // Optional params
+        cell.floatRatingView.delegate = self
+        cell.floatRatingView.contentMode = UIViewContentMode.scaleAspectFill
+        cell.floatRatingView.maxRating = 5
+        cell.floatRatingView.minRating = 1
+        //Set star rating
+        cell.floatRatingView.rating = Float(coffeeshop.beanRating!)!
+        cell.floatRatingView.editable = false
         return cell
     }
     

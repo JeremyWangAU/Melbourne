@@ -13,8 +13,7 @@ class NearbyTableViewCell: UITableViewCell {
     @IBOutlet weak var nearbyImage: UIImageView!
     @IBOutlet weak var nearbyName: UILabel!
     @IBOutlet weak var nearbyAddress: UILabel!
-    @IBOutlet weak var nearbyRating: UILabel!
-    
+    @IBOutlet weak var floatRatingView: FloatRatingView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

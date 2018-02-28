@@ -18,6 +18,8 @@ class AllListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var AllListName: UILabel!
     
+    @IBOutlet weak var floatRatingView: FloatRatingView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

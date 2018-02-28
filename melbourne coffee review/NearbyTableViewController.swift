@@ -11,7 +11,11 @@ import AlamofireImage
 import CoreLocation
 
 
-class NearbyTableViewController: UITableViewController {
+class NearbyTableViewController: UITableViewController,FloatRatingViewDelegate {
+    func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Float) {
+        
+    }
+    
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -56,7 +60,7 @@ class NearbyTableViewController: UITableViewController {
                     let doubleDis : Double = distance!
                     let intDis : Int = Int(doubleDis)
                     print("\(intDis/1000) km")
-                    if (intDis/1000) < 1000{
+                    if (intDis/1000) < 5{
                         self.coffeeInFive.append(coffeeshop)
                         //print(self.coffeeInFive)
                         
@@ -105,16 +109,24 @@ class NearbyTableViewController: UITableViewController {
         if coffeeInFive.count != 0{
         let  coffeeshop = self.coffeeInFive[indexPath.row]
         cell.nearbyAddress.text = coffeeshop.street
-        cell.nearbyRating.text = coffeeshop.beanRating
         cell.nearbyName.text = coffeeshop.name
         let URL_IMAGE = URL(string: "http://melbournecoffeereview.com/hotshots\(coffeeshop.thumbPath!)")!
         cell.nearbyImage.af_setImage(withURL: URL_IMAGE)
         
-        }
-
+        
+        cell.floatRatingView.fullImage = UIImage(named: "bean")
+        cell.floatRatingView.emptyImage = UIImage(named: "bean")
+        // Optional params
+        cell.floatRatingView.delegate = self
+        cell.floatRatingView.contentMode = UIViewContentMode.scaleAspectFill
+        cell.floatRatingView.maxRating = 5
+        cell.floatRatingView.minRating = 1
+        //Set star rating
+            cell.floatRatingView.rating =  Float(coffeeshop.beanRating!)!
+        cell.floatRatingView.editable = false
 //        let locValue:CLLocationCoordinate2D = (locationManager!.location?.coordinate)!
         
-        
+        }
 
         return cell
     }
@@ -169,7 +181,7 @@ class NearbyTableViewController: UITableViewController {
 //            let controller  = segue.destination as! NearbyMapViewController
 //            controller.coffeeshops = self.coffeeInFive
 //        }
-        if segue.identifier == "detail"{
+        if segue.identifier == "gotodetailNT"{
             if let indexPath = tableView.indexPathForSelectedRow{
             let controller = segue.destination as! CoffeeShopDetailViewController
             controller.coffeeShop = self.coffeeInFive[indexPath.row]

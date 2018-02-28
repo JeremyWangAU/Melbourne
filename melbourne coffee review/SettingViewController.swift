@@ -14,10 +14,11 @@ class SettingViewController: UIViewController, UITableViewDelegate,UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "SettingCell", for: indexPath)
-        cell.textLabel?.text = "about"
         return cell
     }
     

@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import AlamofireImage
 import Alamofire
+import Reachability
 class NearbyMapViewController: UIViewController,CLLocationManagerDelegate {
     
     @IBOutlet weak var mapview: MKMapView!
@@ -21,6 +22,7 @@ class NearbyMapViewController: UIViewController,CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!), span: span)
         mapview.setRegion(region, animated: true)
     }
+    let reachability = Reachability()!
     private var currentLocation: CLLocation?
     var coffeeshops = [CoffeeShop]()
     var places = [CoffeeShopMap]()
@@ -30,9 +32,25 @@ class NearbyMapViewController: UIViewController,CLLocationManagerDelegate {
     var coffeeInFive = [CoffeeShop]()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
+    @objc func reachabilityChanged(note: Notification) {
+        
+        let reachability = note.object as! Reachability
+        
+        switch reachability.connection {
+        case .wifi:
+            print("Reachable via WiFi")
+        case .cellular:
+            print("Reachable via Cellular")
+        case .none:
+            print("Network not reachable")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        
         mapview.delegate = self
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -41,6 +59,24 @@ class NearbyMapViewController: UIViewController,CLLocationManagerDelegate {
         // Do any additional setup after loading the view.
        // fetchdata()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //checkLocationAuthorizationStatus()
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged), name: .reachabilityChanged, object: reachability)
+        
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
+        
+       
+
+    }
+ 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func fetchdata()
@@ -73,7 +109,7 @@ class NearbyMapViewController: UIViewController,CLLocationManagerDelegate {
                     let doubleDis : Double = distance!
                     let intDis : Int = Int(doubleDis)
                     //print("\(intDis/1000) km")
-                    if (intDis/1000) < 1000{
+                    if (intDis/1000) < 5{
                         self.coffeeInFive.append(coffeeshop)
                         //print(self.coffeeInFive)
 
@@ -116,7 +152,7 @@ class NearbyMapViewController: UIViewController,CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func checkLocationAuthorizationStatus(){
+    @objc func checkLocationAuthorizationStatus(){
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse{
             self.locationManager.startUpdatingLocation()
             mapview.showsUserLocation = true
@@ -127,20 +163,37 @@ class NearbyMapViewController: UIViewController,CLLocationManagerDelegate {
             locationManager.requestWhenInUseAuthorization()
             //self.locationManager.startUpdatingLocation()
           //  checkLocationAuthorizationStatus()
-            
+           // self.alertBn(title: "Location Required", message: "Please change the location authorization in Setting")
         }
     }
     
+    @objc func checkLocationAuthorizationStatusWhenRevoke(){
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse{
+            self.locationManager.startUpdatingLocation()
+            mapview.showsUserLocation = true
+            
+        }
+        else
+        {
+          //  locationManager.requestWhenInUseAuthorization()
+            //self.locationManager.startUpdatingLocation()
+            //  checkLocationAuthorizationStatus()
+             self.alertBn(title: "Location Required", message: "Please change the location authorization in Setting")
+        }
+    }
    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .notDetermined:
             print("NotDetermined")
+            
         case .restricted:
             print("Restricted")
         case .denied:
             print("Denied")
-            
+            self.alertBn(title: "Location Required", message: "Please change the location authorization in Setting")
+        
+            NotificationCenter.default.addObserver(self, selector:#selector(self.checkLocationAuthorizationStatusWhenRevoke), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         case .authorizedAlways:
             print("AuthorizedAlways")
             locationManager!.startUpdatingLocation()
@@ -151,6 +204,7 @@ class NearbyMapViewController: UIViewController,CLLocationManagerDelegate {
             mapview.showsUserLocation = true
         }
     }
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         defer { currentLocation = locations.last }

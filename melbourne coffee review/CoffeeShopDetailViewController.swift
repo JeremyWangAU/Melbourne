@@ -23,8 +23,8 @@ class CoffeeShopDetailViewController: UIViewController {
     @IBOutlet weak var phoneL: UILabel!
     @IBOutlet weak var websiteL: UILabel!
     
-    @IBOutlet weak var reviewL: UILabel!
     
+    @IBOutlet weak var reviewText: UITextView!
     var coffeeShop:CoffeeShop?
 
     @IBAction func navigation(_ sender: Any) {
@@ -89,10 +89,10 @@ class CoffeeShopDetailViewController: UIViewController {
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(CoffeeShopDetailViewController.didTap))
         slideshow.addGestureRecognizer(recognizer)
         self.nameL.text = self.coffeeShop?.name
-        self.addressL.text = self.coffeeShop?.street
-        self.phoneL.text = self.coffeeShop?.phone
+        
+        self.addressL.text = (self.coffeeShop?.street)! + " " + (self.coffeeShop?.suburb)!
         self.websiteL.text = self.coffeeShop?.website
-        self.reviewL.text = self.coffeeShop?.review
+        self.reviewText.text = self.coffeeShop?.review
     }
     
     @objc func didTap() {

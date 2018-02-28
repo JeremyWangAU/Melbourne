@@ -9,6 +9,6 @@ target 'melbourne coffee review' do
       pod 'AlamofireImage', '~> 3.3'
 pod 'ImageSlideshow', '~> 1.4'
 pod "ImageSlideshow/Alamofire"
-
+pod 'ReachabilitySwift'
 
 end

@@ -9,7 +9,6 @@
 import UIKit
 import MapKit
 import CoreLocation
-
 class AllListMapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
@@ -31,7 +30,8 @@ class AllListMapViewController: UIViewController,CLLocationManagerDelegate,MKMap
 
     //var aCoffee:CoffeeShopMap?
     let regionRadius: CLLocationDistance = 1000
-
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
@@ -50,6 +50,9 @@ class AllListMapViewController: UIViewController,CLLocationManagerDelegate,MKMap
         
         
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        checkLocationAuthorizationStatus()
     }
     
     func checkLocationAuthorizationStatus(){

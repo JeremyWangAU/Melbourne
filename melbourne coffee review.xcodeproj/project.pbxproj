@@ -15,6 +15,8 @@
 		A66E0B1B1FEDE7D300543CB7 /* NearbyMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E0B1A1FEDE7D300543CB7 /* NearbyMapViewController.swift */; };
 		A66E0B1D1FF0677300543CB7 /* CoffeeShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E0B1C1FF0677300543CB7 /* CoffeeShopDetailViewController.swift */; };
 		A6808FF11FFBC29400A56B59 /* NearbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6808FF01FFBC29400A56B59 /* NearbyTableViewCell.swift */; };
+		A6808FF31FFE1B8C00A56B59 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6808FF21FFE1B8C00A56B59 /* ViewControllerExtension.swift */; };
+		A6A013AF2035CC42008997BF /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A013AE2035CC42008997BF /* FloatRatingView.swift */; };
 		A6FA1FBB1FE0B73A0039B882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA1FBA1FE0B73A0039B882 /* AppDelegate.swift */; };
 		A6FA1FC01FE0B73A0039B882 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6FA1FBE1FE0B73A0039B882 /* Main.storyboard */; };
 		A6FA1FC31FE0B73A0039B882 /* melbourne_coffee_review.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6FA1FC11FE0B73A0039B882 /* melbourne_coffee_review.xcdatamodeld */; };
@@ -32,6 +34,8 @@
 		A66E0B1A1FEDE7D300543CB7 /* NearbyMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyMapViewController.swift; sourceTree = "<group>"; };
 		A66E0B1C1FF0677300543CB7 /* CoffeeShopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopDetailViewController.swift; sourceTree = "<group>"; };
 		A6808FF01FFBC29400A56B59 /* NearbyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyTableViewCell.swift; sourceTree = "<group>"; };
+		A6808FF21FFE1B8C00A56B59 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		A6A013AE2035CC42008997BF /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		A6FA1FB71FE0B73A0039B882 /* melbourne coffee review.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "melbourne coffee review.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FA1FBA1FE0B73A0039B882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6FA1FBF1FE0B73A0039B882 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,7 +106,9 @@
 				A66E0B181FEDCACA00543CB7 /* NearbyTableViewController.swift */,
 				A66E0B1A1FEDE7D300543CB7 /* NearbyMapViewController.swift */,
 				A6808FF01FFBC29400A56B59 /* NearbyTableViewCell.swift */,
+				A6A013AE2035CC42008997BF /* FloatRatingView.swift */,
 				A66E0B1C1FF0677300543CB7 /* CoffeeShopDetailViewController.swift */,
+				A6808FF21FFE1B8C00A56B59 /* ViewControllerExtension.swift */,
 			);
 			path = "melbourne coffee review";
 			sourceTree = "<group>";
@@ -214,12 +220,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -256,8 +264,10 @@
 				A66E0B0F1FECAD2600543CB7 /* AllListMapViewController.swift in Sources */,
 				A66E0B151FEDC49700543CB7 /* SettingViewController.swift in Sources */,
 				A6FA1FD01FE0CFBA0039B882 /* AllListTableViewController.swift in Sources */,
+				A6808FF31FFE1B8C00A56B59 /* ViewControllerExtension.swift in Sources */,
 				A66E0B1B1FEDE7D300543CB7 /* NearbyMapViewController.swift in Sources */,
 				A6808FF11FFBC29400A56B59 /* NearbyTableViewCell.swift in Sources */,
+				A6A013AF2035CC42008997BF /* FloatRatingView.swift in Sources */,
 				A66E0B1D1FF0677300543CB7 /* CoffeeShopDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,13 +406,16 @@
 			baseConfigurationReference = DB2575100C0C217820509B01 /* Pods-melbourne coffee review.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB64227M3X;
 				INFOPLIST_FILE = "melbourne coffee review/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "test.melbourne-coffee-review";
+				PRODUCT_BUNDLE_IDENTIFIER = com.meltrocoffeereview.mcr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -413,13 +426,15 @@
 			baseConfigurationReference = E8DF6D23C23A5DF5A49FE882 /* Pods-melbourne coffee review.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB64227M3X;
 				INFOPLIST_FILE = "melbourne coffee review/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "test.melbourne-coffee-review";
+				PRODUCT_BUNDLE_IDENTIFIER = com.meltrocoffeereview.mcr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
