@@ -42,6 +42,7 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         searchController.searchResultsUpdater = self
        // searchController.searchBar.delegate = self
         if #available(iOS 9.1, *) {

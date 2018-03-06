@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        Thread.sleep(forTimeInterval: 3.5)
         // Override point for customization after application launch.
         
 //            locationManager = CLLocationManager()
