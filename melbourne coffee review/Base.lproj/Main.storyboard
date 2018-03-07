@@ -30,7 +30,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="59.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NsC-Aq-rkb">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="about" translatesAutoresizingMaskIntoConstraints="NO" id="NsC-Aq-rkb">
                                                     <rect key="frame" x="15" y="11" width="41" height="39"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -562,7 +562,7 @@ An MCR subscription gives you enhanced opportunities to gain more customers and 
         <scene sceneID="9ZH-cR-SFb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a5G-Um-gDq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="Nearby" selectedImage="Nearby" id="C3t-WO-IIx"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" selectedImage="map" id="C3t-WO-IIx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rlb-AX-1bo">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -583,6 +583,7 @@ An MCR subscription gives you enhanced opportunities to gain more customers and 
         <image name="Setting" width="32" height="32"/>
         <image name="about" width="256" height="256"/>
         <image name="location-arrow-icon-map-arrow-icon" width="614" height="614"/>
+        <image name="map" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0Dl-gr-EN3"/>

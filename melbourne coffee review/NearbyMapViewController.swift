@@ -61,24 +61,24 @@ class NearbyMapViewController: UIViewController,CLLocationManagerDelegate {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        //checkLocationAuthorizationStatus()
-        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged), name: .reachabilityChanged, object: reachability)
-        
-        do{
-            try reachability.startNotifier()
-        }catch{
-            print("could not start reachability notifier")
-        }
-        
-       
-
-    }
- 
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
+//    override func viewWillAppear(_ animated: Bool) {
+//        //checkLocationAuthorizationStatus()
+//        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged), name: .reachabilityChanged, object: reachability)
+//
+//        do{
+//            try reachability.startNotifier()
+//        }catch{
+//            print("could not start reachability notifier")
+//        }
+//
+//
+//
+//    }
+//
+//    deinit {
+//        NotificationCenter.default.removeObserver(self)
+//    }
+//
     func fetchdata()
     {
         let  jsonUrlCoffeeShop = "http://hotshots.melbournecoffeereview.com/ServiceJeremy.php"

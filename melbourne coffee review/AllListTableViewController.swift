@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import Reachability
 
 struct CoffeeShop: Decodable {
     let id:String?
@@ -29,16 +30,50 @@ struct CoffeeShop: Decodable {
 
 
 class AllListTableViewController: UITableViewController,FloatRatingViewDelegate {
+    let reachability = Reachability()!
+
     func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Float) {
         
     }
     
     @IBOutlet weak var rightbutton: UIBarButtonItem!
     
+    @objc func reachabilityChanged(note: Notification) {
+        
+        let reachability = note.object as! Reachability
+        
+        switch reachability.connection {
+        case .wifi:
+            print("Reachable via WiFi")
+        case .cellular:
+            print("Reachable via Cellular")
+        case .none:
+            print("Network not reachable")
+        }
+    }
+    
     var coffeeshops = [CoffeeShop]()
     var filterCoffeesshops = [CoffeeShop]()
     
     let searchController = UISearchController(searchResultsController:nil)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //checkLocationAuthorizationStatus()
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged), name: .reachabilityChanged, object: reachability)
+        
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
+        
+        
+        
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
