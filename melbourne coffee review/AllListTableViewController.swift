@@ -27,6 +27,17 @@ struct CoffeeShop: Decodable {
     let review:String?
     let thumbPath:String?
     
+    func getDistance(currentLocation:CLLocation) -> Int {
+        let lat = Double(self.latitude!)
+        let lon = Double(self.longitude!)
+        let initLocation = CLLocation(latitude:lat!, longitude:lon!)
+        
+        let distance = currentLocation.distance(from: initLocation)
+        let doubleDis : Double = distance
+        let intDis : Int = Int(doubleDis)
+        return intDis
+    }
+    
 }
 
 
@@ -161,6 +172,7 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate,
     
     func fetchdata()
     {
+        self.nearCoffeeshops.removeAll()
         let  jsonUrlCoffeeShop = "http://hotshots.melbournecoffeereview.com/ServiceJeremy.php"
         
         
@@ -178,17 +190,21 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate,
                 self.coffeeshops = try JSONDecoder().decode([CoffeeShop].self, from: data)
                 for coffeeshop in self.coffeeshops{
                     
-                    let lat = Double(coffeeshop.latitude!)
-                    let lon = Double(coffeeshop.longitude!)
-                    let initLocation = CLLocation(latitude:lat!, longitude:lon!)
+//                    let lat = Double(coffeeshop.latitude!)
+//                    let lon = Double(coffeeshop.longitude!)
+//                    let initLocation = CLLocation(latitude:lat!, longitude:lon!)
+//
+//                    let distance = self.currentLocation?.distance(from: initLocation)
+//                    let doubleDis : Double = distance!
+//                    let intDis : Int = Int(doubleDis)
+//                    print("\(intDis/1000) km")
                     
-                    let distance = self.currentLocation?.distance(from: initLocation)
-                    let doubleDis : Double = distance!
-                    let intDis : Int = Int(doubleDis)
-                    print("\(intDis/1000) km")
-                    if (intDis/1000) < 10{
+                    if (coffeeshop.getDistance(currentLocation: self.currentLocation!)/1000) < 5{
                         self.nearCoffeeshops.append(coffeeshop)
-                        //print(self.coffeeInFive)
+                        self.nearCoffeeshops.sort{
+                            return $0.getDistance(currentLocation: self.currentLocation!) < $1.getDistance(currentLocation: self.currentLocation!)
+                        }
+                            
                         
                     }
                 }
@@ -197,12 +213,17 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate,
             catch let jsonErr{
                 print(jsonErr)
             }
-            DispatchQueue.main.async(execute: {self.tableView.reloadData()})
-             print(self.coffeeshops)
+            DispatchQueue.main.async(execute: {
+                //print(self.coffeeInFive)
+//                for cof in self.nearCoffeeshops{
+//                    print(cof.getDistance(currentLocation: self.currentLocation!))
+//                }
+                self.tableView.reloadData()})
+//             //print(self.coffeeshops)
             }.resume()
     
     
-    
+        
     }
     
     @objc func checkLocationAuthorizationStatus(){
@@ -262,9 +283,9 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate,
             // Zoom to user location
             if let userLocation = locations.last {
                 let locationValue:CLLocationCoordinate2D = manager.location!.coordinate
-                        print("locations = \(locationValue)")
                        self.currentCoordinate = locationValue
                       self.currentLocation = CLLocation(latitude:(self.currentCoordinate?.latitude)!,longitude:(self.currentCoordinate?.longitude)!)
+                
                 fetchdata()
                 
                 
@@ -302,7 +323,9 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate,
         let coffeeshop:CoffeeShop
         if isFiltering(){
             coffeeshop = filterCoffeesshops[indexPath.row]
+            
         } else{
+            
              coffeeshop = self.nearCoffeeshops[indexPath.row]
 
         }

@@ -8,7 +8,7 @@
 
 import UIKit
 import Reachability
-
+import CoreLocation
 extension UIViewController {
     
     func alertBn(title:String,message:String){
@@ -43,4 +43,6 @@ extension UIViewController {
     alertController.addAction(OKAction)
     self.present(alertController, animated: true, completion:nil)
     }
+    
+
 }

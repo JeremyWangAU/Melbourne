@@ -62,7 +62,9 @@ class NearbyTableViewController: UITableViewController,FloatRatingViewDelegate {
                     print("\(intDis/1000) km")
                     if (intDis/1000) < 5{
                         self.coffeeInFive.append(coffeeshop)
+                        
                         //print(self.coffeeInFive)
+                        
                         
                     }
                 }
@@ -74,6 +76,7 @@ class NearbyTableViewController: UITableViewController,FloatRatingViewDelegate {
             
             
             DispatchQueue.main.async(execute: {
+                
                 self.tableView.reloadData()})
             // print(self.coffeeshops)
             }.resume()
