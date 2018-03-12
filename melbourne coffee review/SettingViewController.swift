@@ -17,7 +17,7 @@ class SettingViewController: UIViewController, UITableViewDelegate,UITableViewDa
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 5
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
@@ -31,12 +31,21 @@ class SettingViewController: UIViewController, UITableViewDelegate,UITableViewDa
             let cell = tableview.dequeueReusableCell(withIdentifier: "TwitterCell", for: indexPath)
             return cell
         }
+        else if indexPath.section == 2 {
+            let cell = tableview.dequeueReusableCell(withIdentifier: "FacebookCell", for: indexPath)
+            return cell
+        }
+        else if indexPath.section == 3 {
+            let cell = tableview.dequeueReusableCell(withIdentifier: "RecommendCell", for: indexPath)
+            return cell
+        }
         else
         {
         let cell = tableview.dequeueReusableCell(withIdentifier: "SettingCell", for: indexPath)
             return cell
             
         }
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -58,6 +67,28 @@ class SettingViewController: UIViewController, UITableViewDelegate,UITableViewDa
                 UIApplication.shared.openURL(twUrl)
             }else{
                 UIApplication.shared.openURL(twUrlWeb)
+            }
+        }
+        else if indexPath.section == 2 {
+            let facebookUrl = URL(string: "fb://profile/150848451601470")!
+            let facebookWeb = URL(string: "https://www.facebook.com/mcreview")!
+            if UIApplication.shared.canOpenURL(facebookUrl){
+                UIApplication.shared.openURL(facebookUrl)
+            }else{
+                UIApplication.shared.openURL(facebookWeb)
+            }
+        }
+        else if indexPath.section == 3 {
+            let RecommendWeb = "http://hotshots.melbournecoffeereview.com/coffeeRecommend/recommend"
+            if let url = URL(string: RecommendWeb) {
+                if #available(iOS 10, *) {
+                    UIApplication.shared.open(url, options: [:],
+                                              completionHandler: {
+                                                (success) in
+                    })
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
             }
         }
     }

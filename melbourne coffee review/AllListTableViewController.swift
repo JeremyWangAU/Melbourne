@@ -9,6 +9,7 @@
 import UIKit
 import AlamofireImage
 import Reachability
+import CoreLocation
 
 struct CoffeeShop: Decodable {
     let id:String?
@@ -29,12 +30,18 @@ struct CoffeeShop: Decodable {
 }
 
 
-class AllListTableViewController: UITableViewController,FloatRatingViewDelegate {
+class AllListTableViewController: UITableViewController,FloatRatingViewDelegate,CLLocationManagerDelegate {
     let reachability = Reachability()!
+    private var currentCoordinate:CLLocationCoordinate2D?
+
+    var currentLocation:CLLocation?
 
     func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Float) {
         
     }
+    
+    //let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private var locationManager: CLLocationManager!
     
     @IBOutlet weak var rightbutton: UIBarButtonItem!
     
@@ -53,6 +60,7 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate 
     }
     
     var coffeeshops = [CoffeeShop]()
+    var nearCoffeeshops = [CoffeeShop]()
     var filterCoffeesshops = [CoffeeShop]()
     
     let searchController = UISearchController(searchResultsController:nil)
@@ -77,7 +85,10 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        checkLocationAuthorizationStatus()
         searchController.searchResultsUpdater = self
        // searchController.searchBar.delegate = self
         if #available(iOS 9.1, *) {
@@ -94,7 +105,7 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate 
        }
         definesPresentationContext = true
 
-        fetchdata()
+      //  fetchdata()
         
 //        self.tableView.delegate = self
 //        self.tableView.dataSource = self
@@ -135,7 +146,7 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate 
     }
     
     func filterContentForSearchText(_ searchText:String, scope:String = "ALL") {
-        filterCoffeesshops = coffeeshops.filter({(coffeeshop : CoffeeShop) -> Bool in
+        filterCoffeesshops = nearCoffeeshops.filter({(coffeeshop : CoffeeShop) -> Bool in
             return coffeeshop.street!.lowercased().contains(searchText.lowercased())||coffeeshop.name!.lowercased().contains(searchText.lowercased())||coffeeshop.suburb!
                 .lowercased().contains(searchText.lowercased())
         
@@ -165,6 +176,22 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate 
             //            print(dataAsString!)
             do {
                 self.coffeeshops = try JSONDecoder().decode([CoffeeShop].self, from: data)
+                for coffeeshop in self.coffeeshops{
+                    
+                    let lat = Double(coffeeshop.latitude!)
+                    let lon = Double(coffeeshop.longitude!)
+                    let initLocation = CLLocation(latitude:lat!, longitude:lon!)
+                    
+                    let distance = self.currentLocation?.distance(from: initLocation)
+                    let doubleDis : Double = distance!
+                    let intDis : Int = Int(doubleDis)
+                    print("\(intDis/1000) km")
+                    if (intDis/1000) < 10{
+                        self.nearCoffeeshops.append(coffeeshop)
+                        //print(self.coffeeInFive)
+                        
+                    }
+                }
                 
             }
             catch let jsonErr{
@@ -176,6 +203,73 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate 
     
     
     
+    }
+    
+    @objc func checkLocationAuthorizationStatus(){
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse{
+            self.locationManager.startUpdatingLocation()
+            
+        }
+        else
+        {
+            locationManager.requestWhenInUseAuthorization()
+            //self.locationManager.startUpdatingLocation()
+            //  checkLocationAuthorizationStatus()
+            // self.alertBn(title: "Location Required", message: "Please change the location authorization in Setting")
+        }
+    }
+    
+    @objc func checkLocationAuthorizationStatusWhenRevoke(){
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse{
+            self.locationManager.startUpdatingLocation()
+            
+        }
+        else
+        {
+            //  locationManager.requestWhenInUseAuthorization()
+            //self.locationManager.startUpdatingLocation()
+            //  checkLocationAuthorizationStatus()
+            self.alertBn(title: "Location Required", message: "Please change the location authorization in Setting")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            print("NotDetermined")
+            
+        case .restricted:
+            print("Restricted")
+        case .denied:
+            print("Denied")
+            self.alertBn(title: "Location Required", message: "Please change the location authorization in Setting")
+            
+            NotificationCenter.default.addObserver(self, selector:#selector(self.checkLocationAuthorizationStatusWhenRevoke), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        case .authorizedAlways:
+            print("AuthorizedAlways")
+            locationManager!.startUpdatingLocation()
+        case .authorizedWhenInUse:
+            print("AuthorizedWhenInUse")
+            locationManager!.startUpdatingLocation()
+        }
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        defer { currentLocation = locations.last }
+        
+        if currentLocation == nil {
+            // Zoom to user location
+            if let userLocation = locations.last {
+                let locationValue:CLLocationCoordinate2D = manager.location!.coordinate
+                        print("locations = \(locationValue)")
+                       self.currentCoordinate = locationValue
+                      self.currentLocation = CLLocation(latitude:(self.currentCoordinate?.latitude)!,longitude:(self.currentCoordinate?.longitude)!)
+                fetchdata()
+                
+                
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -199,7 +293,7 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate 
         if isFiltering(){
             return filterCoffeesshops.count
         }
-        return self.coffeeshops.count
+        return self.nearCoffeeshops.count
     }
 
     
@@ -209,7 +303,7 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate 
         if isFiltering(){
             coffeeshop = filterCoffeesshops[indexPath.row]
         } else{
-             coffeeshop = self.coffeeshops[indexPath.row]
+             coffeeshop = self.nearCoffeeshops[indexPath.row]
 
         }
         cell.AllListName.text = coffeeshop.name
@@ -277,7 +371,7 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate 
         // Pass the selected object to the new view controller.
         if segue.identifier == "showmap" {
             let controller  = segue.destination as! AllListMapViewController
-            controller.coffeeshops = self.coffeeshops
+            controller.coffeeshops = self.nearCoffeeshops
         }
         
         if segue.identifier == "alldetail"{
@@ -287,7 +381,7 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate 
                     controller.coffeeShop = self.filterCoffeesshops[indexPath.row]
                 }
                 else{
-                controller.coffeeShop = self.coffeeshops[indexPath.row]
+                controller.coffeeShop = self.nearCoffeeshops[indexPath.row]
                 }
             }
         }

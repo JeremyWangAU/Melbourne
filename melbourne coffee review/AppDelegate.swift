@@ -28,26 +28,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
 //            self.locationManager?.requestAlwaysAuthorization()
 //            locationManager?.desiredAccuracy = kCLLocationAccuracyBest
 //            locationManager?.startUpdatingLocation()
-//
+
         
         return true
     }
-    
-    
-/*
-func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    if currentLocation == nil {
-        currentLocation = locations.last
-        locationManager?.stopMonitoringSignificantLocationChanges()
-        let locationValue:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locationValue)")
-        self.currentCoordinate = locationValue
-        self.currentLocation = CLLocation(latitude:(self.currentCoordinate?.latitude)!,longitude:(self.currentCoordinate?.longitude)!)
+   
+//func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//    if currentLocation == nil {
+//        currentLocation = locations.last
+//        locationManager?.stopMonitoringSignificantLocationChanges()
+//        let locationValue:CLLocationCoordinate2D = manager.location!.coordinate
+//        print("locations = \(locationValue)")
+//        self.currentCoordinate = locationValue
+//        self.currentLocation = CLLocation(latitude:(self.currentCoordinate?.latitude)!,longitude:(self.currentCoordinate?.longitude)!)
+//
+//       // locationManager?.stopUpdatingLocation()
+//    }
+//}
+//
 
-       // locationManager?.stopUpdatingLocation()
-    }
-}
-*/
+
     func applicationWillResignActive(_ application: UIApplication) {        print(1)
 
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
