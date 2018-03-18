@@ -230,7 +230,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gd5-tQ-tex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="372" y="-44"/>
+            <point key="canvasLocation" x="755.07246376811599" y="-70.108695652173921"/>
         </scene>
         <!--All List Map View Controller-->
         <scene sceneID="a80-yU-vKS">
@@ -263,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DuZ-EX-Llz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1464.8" y="784.85757121439292"/>
+            <point key="canvasLocation" x="1525" y="871"/>
         </scene>
         <!--Details-->
         <scene sceneID="ueT-rp-tlm">
@@ -367,7 +367,7 @@ website</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKO-b6-2wU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2852" y="-2.9556650246305418"/>
+            <point key="canvasLocation" x="3157.971014492754" y="-3.2608695652173916"/>
         </scene>
         <!--Map-->
         <scene sceneID="ioj-jI-uY2">
@@ -396,9 +396,6 @@ website</string>
                     <navigationItem key="navigationItem" title="Map" id="kxI-rc-UXU">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="list" style="plain" id="ekG-RV-Hr5">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="elr-iY-Yuu" kind="show" identifier="nearbylist" id="L2e-lw-PIl"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -408,7 +405,7 @@ website</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s79-sq-3iD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1695.6521739130435" y="1.6304347826086958"/>
+            <point key="canvasLocation" x="1628.985507246377" y="28.532608695652176"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0ZK-Yb-1Hk">
@@ -422,6 +419,7 @@ website</string>
                     <connections>
                         <segue destination="tZt-3C-eF0" kind="relationship" relationship="viewControllers" id="mX2-tE-TPt"/>
                         <segue destination="a5G-Um-gDq" kind="relationship" relationship="viewControllers" id="75D-50-yj1"/>
+                        <segue destination="zAt-Z6-2Iz" kind="relationship" relationship="viewControllers" id="8sc-4S-QSw"/>
                         <segue destination="lrB-k1-r5k" kind="relationship" relationship="viewControllers" id="w47-U8-VWP"/>
                     </connections>
                 </tabBarController>
@@ -438,26 +436,65 @@ website</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3nE-6B-ygW">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <rect key="frame" x="20" y="64" width="374" height="623"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">WHO IS MCR?
-MCR promises choice and a voice to lovers of cafes and coffee wherever they may be. We do this via our network of reviewers and unique voting process to award our famous three bean ratings. We deliver via the web, our publications and smart phone apps. We offer café owners direct access to manage their digital face online and offer coffee roasters a platform through which to connect with the market. We also bring industry news from around the world for our community of readers linking into our blog, facebook and twitter platforms.
-
-WHAT DOES REGISTERING A CAFE WITH MCR GIVE YOU?
-Registering a cafe allows your listing to be displayed on our website and app and is free of charge. Individuals can then vote for your cafe through the website or app. Once a certain amount of votes are reached, MCR will review your cafe and give it a bean rating (1-3). MCR then produces a top 10 cafe guide for each designated area i.e CBD, St Kilda, Fitzroy etc. In order to promote your cafe further we also offer enhanced subscription packages – more detail can be found on our subscription page.
-
-HOW WE CHOOSE THE TOP 10?
-When a certain amount of votes are reached, MCR will then review using a set standard of criteria and rate using a bean rating (1-3). This rating will be assigned to the listing and the top 10 published (for each designated area).
-
-WHAT DOES AN MCR SUBSCRIPTION GIVE YOU?
-An MCR subscription gives you enhanced opportunities to gain more customers and votes. With different levels of subscription packages available it can be a cost effective way to promote your business.
-
+                                        <mutableString key="content">Metro Coffee Review (MCR) is a trading name of Global Review Services Pty Ltd (Australia).  MCR's mission is to help our users find the best coffee and cafes in the top metropolitan centers of the world.  Founded in 2008 as The Melbourne Coffee Review in Melbourne Australia by Peter Christo (</mutableString>
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="24" name="LucidaGrande"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="17" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <real key="NSStrokeWidth" value="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="http://www.linkedin.com/in/peterchristo/">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.11764705882352941" green="0.32941176470588235" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="24" name="LucidaGrande"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <url key="NSLink" string="http://www.linkedin.com/in/peterchristo/"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="17" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" red="0.11764705882352941" green="0.32941176470588235" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <real key="NSStrokeWidth" value="0.0"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=").">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="24" name="LucidaGrande"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="17" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <real key="NSStrokeWidth" value="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
 </string>
                                         <attributes>
-                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="24" name="LucidaGrande"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="17" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <real key="NSStrokeWidth" value="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -471,7 +508,7 @@ An MCR subscription gives you enhanced opportunities to gain more customers and 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MLS-Ik-iSE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="920" y="-780"/>
+            <point key="canvasLocation" x="918.84057971014499" y="-780.16304347826087"/>
         </scene>
         <!--NearBy-->
         <scene sceneID="c2f-f8-hBz">
@@ -619,15 +656,35 @@ An MCR subscription gives you enhanced opportunities to gain more customers and 
             </objects>
             <point key="canvasLocation" x="-48" y="382"/>
         </scene>
+        <!--ALL-->
+        <scene sceneID="jP0-MK-ABp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zAt-Z6-2Iz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ALL" image="list" id="ZUx-zV-RDj"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gYZ-Sb-HVr">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="elr-iY-Yuu" kind="relationship" relationship="rootViewController" id="alO-GN-2wB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8dE-8x-fdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="447.82608695652175" y="-70.108695652173921"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Nearby" width="32" height="32"/>
         <image name="Setting" width="32" height="32"/>
         <image name="about" width="256" height="256"/>
+        <image name="list" width="24" height="24"/>
         <image name="location-arrow-icon-map-arrow-icon" width="614" height="614"/>
         <image name="map" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Dl-gr-EN3"/>
+        <segue reference="U1k-cd-XFI"/>
     </inferredMetricsTieBreakers>
 </document>

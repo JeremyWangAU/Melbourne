@@ -11,7 +11,7 @@ import AlamofireImage
 import CoreLocation
 
 
-class NearbyTableViewController: UITableViewController,FloatRatingViewDelegate {
+class NearbyTableViewController: UITableViewController,FloatRatingViewDelegate,UISearchResultsUpdating {
     func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Float) {
         
     }
@@ -21,16 +21,56 @@ class NearbyTableViewController: UITableViewController,FloatRatingViewDelegate {
 
     var coffeeshops = [CoffeeShop]()
     var coffeeInFive = [CoffeeShop]()
-    
+    var filterCoffeesshops = [CoffeeShop]()
+    let searchController = UISearchController(searchResultsController:nil)
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        //fetchdata()
+        fetchdata()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+
+        if #available(iOS 9.1, *) {
+            searchController.obscuresBackgroundDuringPresentation = false
+        } else {
+            // Fallback on earlier versions
+        }
+        searchController.searchBar.placeholder = "Search by name and address"
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+        } else {
+            tableView.tableHeaderView = searchController.searchBar
+            // Fallback on earlier versions
+        }
+        definesPresentationContext = true
+
+    }
+    
+    func searchBarIsEmpty() -> Bool{
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText:String, scope:String = "ALL") {
+        filterCoffeesshops = coffeeInFive.filter({(coffeeshop : CoffeeShop) -> Bool in
+            return coffeeshop.street!.lowercased().contains(searchText.lowercased())||coffeeshop.name!.lowercased().contains(searchText.lowercased())||coffeeshop.suburb!
+                .lowercased().contains(searchText.lowercased())
+            
+        })
+        tableView.reloadData()
+    }
+    
+    func isFiltering() -> Bool{
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
     }
     
     func fetchdata()
@@ -51,22 +91,22 @@ class NearbyTableViewController: UITableViewController,FloatRatingViewDelegate {
             do {
                 self.coffeeshops = try JSONDecoder().decode([CoffeeShop].self, from: data)
                 for coffeeshop in self.coffeeshops{
-                    let currentLocation = self.appDelegate.currentLocation
-                    let lat = Double(coffeeshop.latitude!)
-                    let lon = Double(coffeeshop.longitude!)
-                    let initLocation = CLLocation(latitude:lat!, longitude:lon!)
+//                    let currentLocation = self.appDelegate.currentLocation
+//                    let lat = Double(coffeeshop.latitude!)
+//                    let lon = Double(coffeeshop.longitude!)
+//                    let initLocation = CLLocation(latitude:lat!, longitude:lon!)
+//
+//                    let distance = currentLocation?.distance(from: initLocation)
+//                    let doubleDis : Double = distance!
+//                    let intDis : Int = Int(doubleDis)
+//                    print("\(intDis/1000) km")
+//                    if (intDis/1000) < 5{
+                    self.coffeeInFive.append(coffeeshop)
                     
-                    let distance = currentLocation?.distance(from: initLocation)
-                    let doubleDis : Double = distance!
-                    let intDis : Int = Int(doubleDis)
-                    print("\(intDis/1000) km")
-                    if (intDis/1000) < 5{
-                        self.coffeeInFive.append(coffeeshop)
-                        
                         //print(self.coffeeInFive)
                         
                         
-                    }
+                //   }
                 }
             }
             catch let jsonErr{
@@ -101,6 +141,9 @@ class NearbyTableViewController: UITableViewController,FloatRatingViewDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if isFiltering(){
+            return filterCoffeesshops.count
+        }
         return self.coffeeInFive.count
     }
 
@@ -109,8 +152,12 @@ class NearbyTableViewController: UITableViewController,FloatRatingViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NearbyCell", for: indexPath) as! NearbyTableViewCell
        // print(coffeeInFive)
-        if coffeeInFive.count != 0{
-        let  coffeeshop = self.coffeeInFive[indexPath.row]
+        let coffeeshop:CoffeeShop
+        if isFiltering(){
+            coffeeshop = filterCoffeesshops[indexPath.row]
+        }else{
+            coffeeshop = self.coffeeInFive[indexPath.row]
+        }
         cell.nearbyAddress.text = coffeeshop.street
         cell.nearbyName.text = coffeeshop.name
         let URL_IMAGE = URL(string: "http://melbournecoffeereview.com/hotshots\(coffeeshop.thumbPath!)")!
@@ -128,8 +175,6 @@ class NearbyTableViewController: UITableViewController,FloatRatingViewDelegate {
             cell.floatRatingView.rating =  Float(coffeeshop.beanRating!)!
         cell.floatRatingView.editable = false
 //        let locValue:CLLocationCoordinate2D = (locationManager!.location?.coordinate)!
-        
-        }
 
         return cell
     }
@@ -187,10 +232,14 @@ class NearbyTableViewController: UITableViewController,FloatRatingViewDelegate {
         if segue.identifier == "gotodetailNT"{
             if let indexPath = tableView.indexPathForSelectedRow{
             let controller = segue.destination as! CoffeeShopDetailViewController
-            controller.coffeeShop = self.coffeeInFive[indexPath.row]
+                if isFiltering(){
+            controller.coffeeShop = self.filterCoffeesshops[indexPath.row]
             }
+                else{
+                    controller.coffeeShop = self.coffeeInFive[indexPath.row]
+                }
+    }
         }
     }
-    
 
 }
