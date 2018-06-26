@@ -22,7 +22,6 @@ class NearbyMapViewController: UIViewController,CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!), span: span)
         mapview.setRegion(region, animated: true)
     }
-    let reachability = Reachability()!
     private var currentLocation: CLLocation?
     var coffeeshops = [CoffeeShop]()
     var places = [CoffeeShopMap]()
@@ -32,20 +31,6 @@ class NearbyMapViewController: UIViewController,CLLocationManagerDelegate {
     var coffeeInFive = [CoffeeShop]()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-    @objc func reachabilityChanged(note: Notification) {
-        
-        let reachability = note.object as! Reachability
-        
-        switch reachability.connection {
-        case .wifi:
-            print("Reachable via WiFi")
-        case .cellular:
-            print("Reachable via Cellular")
-        case .none:
-            print("Network not reachable")
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		105BF949BD92984C1A221071 /* Pods_melbourne_coffee_review.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99DCC87948F15AC9CF3C11B /* Pods_melbourne_coffee_review.framework */; };
-		A66E0B0F1FECAD2600543CB7 /* AllListMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E0B0E1FECAD2600543CB7 /* AllListMapViewController.swift */; };
 		A66E0B131FECB0B600543CB7 /* CoffeeShopMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E0B121FECB0B600543CB7 /* CoffeeShopMap.swift */; };
 		A66E0B151FEDC49700543CB7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E0B141FEDC49700543CB7 /* SettingViewController.swift */; };
 		A66E0B191FEDCACA00543CB7 /* NearbyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E0B181FEDCACA00543CB7 /* NearbyTableViewController.swift */; };
@@ -28,7 +27,6 @@
 
 /* Begin PBXFileReference section */
 		A6000493204FC37900A64BEC /* melbourne coffee review.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "melbourne coffee review.entitlements"; sourceTree = "<group>"; };
-		A66E0B0E1FECAD2600543CB7 /* AllListMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListMapViewController.swift; sourceTree = "<group>"; };
 		A66E0B121FECB0B600543CB7 /* CoffeeShopMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopMap.swift; sourceTree = "<group>"; };
 		A66E0B141FEDC49700543CB7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		A66E0B181FEDCACA00543CB7 /* NearbyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyTableViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				A6FA1FC11FE0B73A0039B882 /* melbourne_coffee_review.xcdatamodeld */,
 				A6FA1FCF1FE0CFBA0039B882 /* AllListTableViewController.swift */,
 				A6FA1FD11FE0CFEC0039B882 /* AllListTableViewCell.swift */,
-				A66E0B0E1FECAD2600543CB7 /* AllListMapViewController.swift */,
 				A66E0B121FECB0B600543CB7 /* CoffeeShopMap.swift */,
 				A66E0B141FEDC49700543CB7 /* SettingViewController.swift */,
 				A66E0B181FEDCACA00543CB7 /* NearbyTableViewController.swift */,
@@ -268,7 +265,6 @@
 				A66E0B191FEDCACA00543CB7 /* NearbyTableViewController.swift in Sources */,
 				A6FA1FD21FE0CFEC0039B882 /* AllListTableViewCell.swift in Sources */,
 				A6FA1FBB1FE0B73A0039B882 /* AppDelegate.swift in Sources */,
-				A66E0B0F1FECAD2600543CB7 /* AllListMapViewController.swift in Sources */,
 				A66E0B151FEDC49700543CB7 /* SettingViewController.swift in Sources */,
 				A6FA1FD01FE0CFBA0039B882 /* AllListTableViewController.swift in Sources */,
 				A6808FF31FFE1B8C00A56B59 /* ViewControllerExtension.swift in Sources */,
@@ -420,7 +416,7 @@
 				INFOPLIST_FILE = "melbourne coffee review/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.meltrocoffeereview.mcr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.melbournecoffeereview.mcr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -441,7 +437,7 @@
 				INFOPLIST_FILE = "melbourne coffee review/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.meltrocoffeereview.mcr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.melbournecoffeereview.mcr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6cu-Qk-Je2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6cu-Qk-Je2">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -151,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dfa-dq-5vV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-181.15942028985509" y="-771.19565217391312"/>
+            <point key="canvasLocation" x="-343" y="-1135"/>
         </scene>
         <!--Nearby-->
         <scene sceneID="GKh-j7-jPu">
@@ -230,40 +230,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gd5-tQ-tex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="755.07246376811599" y="-70.108695652173921"/>
-        </scene>
-        <!--All List Map View Controller-->
-        <scene sceneID="a80-yU-vKS">
-            <objects>
-                <viewController id="Vuj-Id-YnM" customClass="AllListMapViewController" customModule="melbourne_coffee_review" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="raH-Us-dZJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1hP-1o-m0X">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUO-co-eVY">
-                                <rect key="frame" x="333" y="64" width="81" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="location-arrow-icon-map-arrow-icon"/>
-                                <connections>
-                                    <action selector="currentLocation:" destination="Vuj-Id-YnM" eventType="touchUpInside" id="b2y-Lo-mSF"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="VyJ-Fm-NlW"/>
-                    </view>
-                    <connections>
-                        <outlet property="mapView" destination="1hP-1o-m0X" id="mv0-Fh-EPf"/>
-                        <segue destination="jI3-zk-Eyl" kind="show" identifier="gotodetail" id="Ieu-3M-e9y"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DuZ-EX-Llz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1525" y="871"/>
+            <point key="canvasLocation" x="577" y="-432"/>
         </scene>
         <!--Details-->
         <scene sceneID="ueT-rp-tlm">
@@ -367,7 +334,7 @@ website</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKO-b6-2wU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3157.971014492754" y="-3.2608695652173916"/>
+            <point key="canvasLocation" x="-1246" y="1163"/>
         </scene>
         <!--Map-->
         <scene sceneID="ioj-jI-uY2">
@@ -405,7 +372,7 @@ website</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s79-sq-3iD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1628.985507246377" y="28.532608695652176"/>
+            <point key="canvasLocation" x="-2165" y="284"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0ZK-Yb-1Hk">
@@ -425,7 +392,7 @@ website</string>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhQ-7f-QY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-687" y="-103"/>
+            <point key="canvasLocation" x="-1246" y="-432"/>
         </scene>
         <!--About-->
         <scene sceneID="Tla-aD-XxR">
@@ -441,7 +408,7 @@ website</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <mutableString key="content">Metro Coffee Review (MCR) is a trading name of Global Review Services Pty Ltd (Australia).  MCR's mission is to help our users find the best coffee and cafes in the top metropolitan centers of the world.  Founded in 2008 as The Melbourne Coffee Review in Melbourne Australia by Peter Christo (</mutableString>
+                                        <string key="content">Metro Coffee Review (MCR) is a trading name of Global Review Services Pty Ltd (Australia).  MCR's mission is to help our users find the best coffee and cafes in the top metropolitan centers of the world.  Founded in 2008 as The Melbourne Coffee Review in Melbourne Australia by Peter Christo (</string>
                                         <attributes>
                                             <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -508,9 +475,9 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MLS-Ik-iSE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="918.84057971014499" y="-780.16304347826087"/>
+            <point key="canvasLocation" x="612" y="-1108"/>
         </scene>
-        <!--NearBy-->
+        <!--All-->
         <scene sceneID="c2f-f8-hBz">
             <objects>
                 <tableViewController id="kXn-jD-y7n" customClass="AllListTableViewController" customModule="melbourne_coffee_review" sceneMemberID="viewController">
@@ -583,12 +550,9 @@ Cg
                             <outlet property="delegate" destination="kXn-jD-y7n" id="AaK-eZ-yyF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="NearBy" id="Q4h-X8-C5C">
+                    <navigationItem key="navigationItem" title="All" id="Q4h-X8-C5C">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Map" style="plain" id="6bp-kf-EEK">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="Vuj-Id-YnM" kind="show" identifier="showmap" id="OQM-Ij-Ibs"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -597,7 +561,7 @@ Cg
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YPQ-Wq-ilI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="702.89855072463774" y="691.304347826087"/>
+            <point key="canvasLocation" x="-343" y="265"/>
         </scene>
         <!--Nearby-->
         <scene sceneID="P3D-Nd-ZLQ">
@@ -616,7 +580,7 @@ Cg
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3z1-la-7aw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-457" y="817"/>
+            <point key="canvasLocation" x="-1245" y="265"/>
         </scene>
         <!--Setting-->
         <scene sceneID="dvq-DM-JCK">
@@ -635,7 +599,7 @@ Cg
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tfs-uP-C7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1382.4000000000001" y="1047.9760119940031"/>
+            <point key="canvasLocation" x="-1246" y="-1134"/>
         </scene>
         <!--Map-->
         <scene sceneID="9ZH-cR-SFb">
@@ -654,7 +618,7 @@ Cg
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUJ-Bf-nqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-48" y="382"/>
+            <point key="canvasLocation" x="-2164" y="-432"/>
         </scene>
         <!--ALL-->
         <scene sceneID="jP0-MK-ABp">
@@ -673,7 +637,7 @@ Cg
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8dE-8x-fdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="447.82608695652175" y="-70.108695652173921"/>
+            <point key="canvasLocation" x="-343" y="-432"/>
         </scene>
     </scenes>
     <resources>
@@ -685,6 +649,6 @@ Cg
         <image name="map" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="U1k-cd-XFI"/>
+        <segue reference="cWj-pr-E4K"/>
     </inferredMetricsTieBreakers>
 </document>

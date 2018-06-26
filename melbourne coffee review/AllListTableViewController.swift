@@ -116,40 +116,6 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate,
        }
         definesPresentationContext = true
 
-      //  fetchdata()
-        
-//        self.tableView.delegate = self
-//        self.tableView.dataSource = self
-       // let jsonUrlString ="M3lb0urn3c0ff33"
-//        let  jsonUrlCoffeeShop = "http://hotshots.melbournecoffeereview.com/ServiceJeremy.php"
-//        let  jsonUrlImage = "http://hotshots.melbournecoffeereview.com/imageservice.php"
-//
-//        guard let urlCoffee = URL(string: jsonUrlCoffeeShop) else
-//        {return}
-//
-//        guard let urlCoffeeImage = URL(string: jsonUrlImage) else
-//        {return}
-//
-//        URLSession.shared.dataTask(with: urlCoffee) { (data, response, err) in
-//           guard let data = data else {return}
-////            let dataAsString = String(data: data, encoding: .utf8)
-////            print(dataAsString!)
-//            do {
-//                 self.coffeeshops = try JSONDecoder().decode([CoffeeShop].self, from: data)
-//
-//            }
-//            catch let jsonErr{
-//                print(jsonErr)
-//            }
-//            DispatchQueue.main.async(execute: {self.tableView.reloadData()})
-//           // print(self.coffeeshops)
-//            }.resume()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     func searchBarIsEmpty() -> Bool{
@@ -190,15 +156,6 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate,
                 self.coffeeshops = try JSONDecoder().decode([CoffeeShop].self, from: data)
                 for coffeeshop in self.coffeeshops{
                     
-//                    let lat = Double(coffeeshop.latitude!)
-//                    let lon = Double(coffeeshop.longitude!)
-//                    let initLocation = CLLocation(latitude:lat!, longitude:lon!)
-//
-//                    let distance = self.currentLocation?.distance(from: initLocation)
-//                    let doubleDis : Double = distance!
-//                    let intDis : Int = Int(doubleDis)
-//                    print("\(intDis/1000) km")
-                    
                     if (coffeeshop.getDistance(currentLocation: self.currentLocation!)/1000) < 5{
                         self.nearCoffeeshops.append(coffeeshop)
                         self.nearCoffeeshops.sort{
@@ -214,12 +171,8 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate,
                 print(jsonErr)
             }
             DispatchQueue.main.async(execute: {
-                //print(self.coffeeInFive)
-//                for cof in self.nearCoffeeshops{
-//                    print(cof.getDistance(currentLocation: self.currentLocation!))
-//                }
+              
                 self.tableView.reloadData()})
-//             //print(self.coffeeshops)
             }.resume()
     
     
@@ -350,41 +303,6 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate,
     }
     
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     
     // MARK: - Navigation
 
@@ -392,10 +310,6 @@ class AllListTableViewController: UITableViewController,FloatRatingViewDelegate,
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "showmap" {
-            let controller  = segue.destination as! AllListMapViewController
-            controller.coffeeshops = self.nearCoffeeshops
-        }
         
         if segue.identifier == "alldetail"{
             if let indexPath = tableView.indexPathForSelectedRow{

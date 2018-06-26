@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>5.2</string>
+	<string>5.3</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
@@ -45,9 +45,9 @@
 		</dict>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Access user location</string>
+	<string>Your current location will be displayed on the map and used for direction and nearby results.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Access user location</string>
+	<string>Your current location will be displayed on the map and used for direction and nearby results.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
